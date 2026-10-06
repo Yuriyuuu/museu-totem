@@ -79,7 +79,7 @@ const exposicao1 = {
   // em porcentagem da largura/altura da imagem — usada para destacar a sala no
   // Mapa da Sala.
   mapa: {
-    area: { left: 2.4, top: 7.4, largura: 12.6, altura: 55.4 },
+    area: { left: 2.9, top: 6.2, largura: 19.9, altura: 57.3 },
   },
 };
 

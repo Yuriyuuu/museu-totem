@@ -19,8 +19,7 @@ npm run dev       # inicia o servidor de desenvolvimento
 
 O terminal vai mostrar um endereço, algo como `http://localhost:5173/`.
 Abra no navegador. Para ver uma sala específica, use o parâmetro `?sala=`.
-A numeração abaixo segue a planta baixa nova do museu (a mesma imagem
-usada no Mapa da Sala):
+Cada número corresponde a uma sala da planta usada no Mapa da Sala:
 
 - `http://localhost:5173/?sala=exposicao-1` (Cotidiano de Quixadá)
 - `http://localhost:5173/?sala=exposicao-2` (Sala Jacinto de Sousa)
@@ -29,11 +28,6 @@ usada no Mapa da Sala):
 - `http://localhost:5173/?sala=exposicao-5` (Açude Cedro)
 - `http://localhost:5173/?sala=exposicao-6` (Exposição de Artistas Locais)
 - `http://localhost:5173/?sala=exposicao-7` (Política e Memória)
-
-A planta nova só traz escrito "Exposição 1" a "Exposição 6". A
-Exposição 7 (Política e Memória) foi marcada na sala sem nome à direita
-da Exposição 4, que é onde essa sala ficava na planta antiga — vale
-confirmar com o museu.
 
 A "Exposição de Artistas Locais" ainda está com um texto provisório e
 sem peças cadastradas (veja `src/data/rooms/exposicao-6.js`). O conteúdo
@@ -129,23 +123,25 @@ conhece o acervo de perto vai pegar.
 
 ## Mapas das salas
 
-O "Mapa da Sala" mostra a **planta baixa do museu**
-(`public/img/planta-museu.jpg`), com um retângulo destacando a sala
-atual e a etiqueta "Você está aqui". A imagem é a planta nova, sem as
-margens em branco e sem a "Área Livre" (o quintal vazio à direita), para
-as salas ficarem maiores na tela. A planta completa e a planta antiga
-(desenhada à mão) estão guardadas na pasta `docs/`. A
+O "Mapa da Sala" mostra a **planta das salas de exposição**
+(`public/img/planta-museu.jpg`), que já traz o nome de cada sala escrito
+dentro dela, com um retângulo destacando a sala atual e a etiqueta "Você
+está aqui". Na imagem usada pelo app foram corrigidos dois nomes que
+vieram com erro de grafia ("Souza" → "Sousa" e "Artislas" → "Artistas");
+a imagem original, sem essa correção, está em
+`docs/planta-salas-original.png`. As plantas anteriores (a do prédio
+inteiro e a desenhada à mão) também estão guardadas na pasta `docs/`. A
 posição do retângulo de cada sala fica em `mapa.area` no arquivo de
 dados da sala (`src/data/rooms/*.js`), como porcentagem da
 largura/altura da imagem da planta — por exemplo:
 
 ```js
 mapa: {
-  area: { left: 2.4, top: 7.4, largura: 12.6, altura: 55.4 },
+  area: { left: 2.9, top: 6.2, largura: 19.9, altura: 57.3 },
 },
 ```
 
-Essas porcentagens foram medidas em cima das paredes da planta nova. Se
+Essas porcentagens foram medidas em cima das paredes da planta. Se
 a imagem da planta for trocada de novo, os números precisam ser
 refeitos.
 

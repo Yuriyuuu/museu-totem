@@ -266,7 +266,7 @@ body {
 .mapa-planta {
   position: relative;
   width: 100%;
-  max-width: 1100px; /* a planta é bem larga e baixa: usa a largura da tela */
+  max-width: 900px; /* cabe inteira na tela do tablet, em pé ou deitado */
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
@@ -286,8 +286,11 @@ body {
   background: rgba(193, 91, 82, 0.28);
   border-radius: 6px;
   display: flex;
-  align-items: center;
+  /* A etiqueta "Você está aqui" fica no alto do destaque, para não cobrir
+     o nome da sala, que já vem escrito na própria planta. */
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 0.3rem;
   box-shadow: 0 0 0 2000px rgba(43, 30, 23, 0.18);
 }
 

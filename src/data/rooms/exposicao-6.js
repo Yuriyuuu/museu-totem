@@ -35,7 +35,7 @@ const exposicao6 = {
     'As obras desta exposição mudam de tempos em tempos. Veja na própria sala o que está em cartaz.',
 
   mapa: {
-    area: { left: 28.1, top: 66.1, largura: 21.3, altura: 26.3 },
+    area: { left: 44.4, top: 66.9, largura: 34.7, altura: 27.4 },
   },
 };
 

@@ -61,7 +61,7 @@ const exposicao7 = {
   ],
 
   mapa: {
-    area: { left: 49.9, top: 7.4, largura: 11.1, altura: 39.0 },
+    area: { left: 80.3, top: 6.2, largura: 17.2, altura: 88.0 },
   },
 };
 
