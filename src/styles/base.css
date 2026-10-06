@@ -1,0 +1,367 @@
+:root {
+  /* Paleta extraída do logo oficial do Museu Histórico Jacinto de Sousa. */
+  --cor-fundo: #f7f1ea;
+  --cor-texto: #2b1e17;
+  --cor-primaria: #c15b52;
+  --cor-primaria-escura: #a8463f;
+  --cor-superficie: #ffffff;
+  --cor-borda: #e3d5c8;
+  --espaco: 1.5rem;
+  --raio: 18px;
+  --altura-toque-minima: 72px; /* alvo de toque grande, pensando em tela de totem */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  /* Totem não deve deixar o visitante dar zoom/seleção acidental de texto arrastando o dedo */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: font-size 0.15s ease;
+}
+
+/* ---------- Tela inicial ---------- */
+
+.tela--home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espaco);
+  gap: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Foto/ilustração de fundo: o prédio-símbolo do museu, em marca d'água,
+     ancorado no canto inferior direito da tela inicial. */
+  background-image: url('/img/marca-museu.png');
+  background-repeat: no-repeat;
+  background-position: right -8vw bottom -8vw;
+  background-size: 60vw;
+}
+
+.tela--home::before {
+  /* Um leve gradiente por cima da marca d'água garante que o texto e os
+     botões continuem com bom contraste, mesmo com a imagem de fundo. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--cor-fundo) 0%,
+    color-mix(in srgb, var(--cor-fundo) 88%, transparent) 55%,
+    var(--cor-fundo) 100%
+  );
+  pointer-events: none;
+}
+
+.tela--home > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home__sala-atual {
+  font-size: 1.1em;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.home__tema-historico {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+.home__botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: min(90vw, 520px);
+}
+
+.botao-grande {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 110px;
+  padding: 1.25rem 1.75rem;
+  background: var(--cor-primaria);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--raio);
+  font-size: 1.4em;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.botao-grande:active {
+  background: var(--cor-primaria-escura);
+}
+
+.botao-grande__icone {
+  font-size: 1.6em;
+}
+
+/* ---------- Telas de conteúdo (Intro / Acervo / Mapa) ---------- */
+
+.tela {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tela__cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.tela__selo {
+  margin-left: auto;
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.tela__voltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--altura-toque-minima);
+  height: var(--altura-toque-minima);
+  min-width: var(--altura-toque-minima);
+  border-radius: 999px;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-size: 1.6em;
+}
+
+.tela__titulo {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.tela__conteudo {
+  flex: 1;
+  padding: var(--espaco);
+  padding-bottom: 140px; /* espaço reservado pro menu de acessibilidade */
+  overflow-y: auto;
+}
+
+.intro__tema-historico {
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin: -0.5rem 0 1rem;
+}
+
+.texto-conteudo {
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 65ch;
+}
+
+/* ---------- Player de áudio ---------- */
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.audio-player__botao {
+  width: var(--altura-toque-minima);
+  height: var(--altura-toque-minima);
+  border-radius: 999px;
+  border: none;
+  background: var(--cor-primaria);
+  color: white;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
+.audio-player__legenda {
+  font-size: 1.05em;
+  opacity: 0.8;
+}
+
+/* ---------- Acervo ---------- */
+
+.acervo__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.acervo__item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  font-size: 1.15em;
+  cursor: pointer;
+  min-height: var(--altura-toque-minima);
+}
+
+.acervo__miniatura {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.acervo__foto {
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--raio);
+  margin-bottom: 1rem;
+}
+
+.acervo__voltar-lista {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  font-size: 1.05em;
+  cursor: pointer;
+}
+
+/* ---------- Mapa ---------- */
+
+.mapa-planta {
+  position: relative;
+  width: 100%;
+  max-width: 1100px; /* a planta é bem larga e baixa: usa a largura da tela */
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+}
+
+.mapa-planta__imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mapa-planta__destaque {
+  position: absolute;
+  border: 3px solid var(--cor-primaria);
+  background: rgba(193, 91, 82, 0.28);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2000px rgba(43, 30, 23, 0.18);
+}
+
+.mapa-planta__etiqueta {
+  background: var(--cor-primaria);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 10px;
+  /* As salas são estreitas na planta: a etiqueta quebra em mais de uma
+     linha para caber dentro do destaque. */
+  max-width: 100%;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.mapa-legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  padding: 0;
+  font-size: 1.05em;
+}
+
+.mapa-legenda__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mapa-legenda__cor-destaque {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--cor-primaria);
+}
+
+/* ---------- Menu de acessibilidade ---------- */
+
+.a11y-menu {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.a11y-menu__botao {
+  width: var(--altura-toque-minima);
+  height: var(--altura-toque-minima);
+  border-radius: 999px;
+  border: 1px solid var(--cor-borda);
+  background: white;
+  font-size: 1.15em;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--cor-texto);
+}
+
+.a11y-menu__botao:disabled {
+  opacity: 0.35;
+}
+
+.a11y-menu__botao.is-ativo {
+  background: var(--cor-primaria);
+  color: white;
+  border-color: var(--cor-primaria);
+}
