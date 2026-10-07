@@ -2,6 +2,8 @@ const exposicao3 = {
   id: 'exposicao-3',
   nome: 'Exposição 3',
   temaHistorico: 'Sala Cego Aderaldo',
+  foto: '/img/salas/cego-aderaldo.webp',
+  fotoFoco: '50% 50%',
 
   introducao: {
     titulo: 'Exposição 3',

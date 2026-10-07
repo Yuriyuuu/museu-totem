@@ -4,7 +4,7 @@ import { useAccessibility } from '../context/AccessibilityContext.jsx';
 import ScreenShell from './ScreenShell.jsx';
 import AudioPlayer from './AudioPlayer.jsx';
 
-// Botão 2: "Explore o Acervo" — lista as peças; clicar abre o detalhe
+// Botão 2: "Explore as Obras" — lista as peças; clicar abre o detalhe
 // (foto em alta definição + texto), sem precisar trocar de rota.
 export default function AcervoScreen() {
   const room = useCurrentRoom();
@@ -20,7 +20,7 @@ export default function AcervoScreen() {
           className="acervo__voltar-lista"
           onClick={() => setItemSelecionado(null)}
         >
-          ← Voltar para a lista do acervo
+          ← Voltar para a lista de obras
         </button>
         <img
           className="acervo__foto"
@@ -42,7 +42,7 @@ export default function AcervoScreen() {
   // "acervoAviso" do arquivo de dados.
   if (room.acervo.length === 0) {
     return (
-      <ScreenShell titulo="Explore o Acervo">
+      <ScreenShell titulo="Explore as Obras">
         <p className="texto-conteudo">
           {room.acervoAviso ?? 'As peças desta sala ainda não foram cadastradas no totem.'}
         </p>
@@ -51,7 +51,7 @@ export default function AcervoScreen() {
   }
 
   return (
-    <ScreenShell titulo="Explore o Acervo">
+    <ScreenShell titulo="Explore as Obras">
       <ul className="acervo__lista">
         {room.acervo.map((item) => (
           <li key={item.id}>

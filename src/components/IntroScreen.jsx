@@ -14,6 +14,14 @@ export default function IntroScreen() {
   return (
     <ScreenShell titulo={titulo}>
       {room.temaHistorico && <p className="intro__tema-historico">{room.temaHistorico}</p>}
+      {room.foto && (
+        <img
+          className="intro__foto"
+          src={room.foto}
+          style={{ objectPosition: room.fotoFoco ?? '50% 50%' }}
+          alt={`Foto da sala ${room.temaHistorico ?? room.nome}`}
+        />
+      )}
       <AudioPlayer
         key={simpleLanguage ? audioUrlSimples : audioUrl}
         src={simpleLanguage ? audioUrlSimples : audioUrl}

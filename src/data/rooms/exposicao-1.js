@@ -3,6 +3,13 @@ const exposicao1 = {
   nome: 'Exposição 1',
   temaHistorico: 'Cotidiano de Quixadá',
 
+  // Foto da sala: é o fundo da tela inicial e também aparece em "O que há
+  // nesta sala?". "fotoFoco" diz que parte da foto fica à mostra quando
+  // ela é cortada: o 1º número é da esquerda (0%) à direita (100%), o 2º
+  // é de cima (0%) a baixo (100%).
+  foto: '/img/salas/cotidiano-de-quixada.webp',
+  fotoFoco: '50% 50%',
+
   introducao: {
     titulo: 'Exposição 1',
     texto:

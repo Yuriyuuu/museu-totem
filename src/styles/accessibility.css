@@ -19,8 +19,37 @@
   color: #000000; /* texto preto sobre fundo amarelo = alto contraste real */
 }
 
+/* Menu de acessibilidade no alto contraste: fundo preto e letra branca
+   (antes a letra ficava branca sobre botão branco e sumia). */
+.app.alto-contraste .a11y-menu {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+.app.alto-contraste .a11y-menu__botao {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
 .app.alto-contraste .a11y-menu__botao.is-ativo {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
   color: #000000;
+}
+
+/* Tela inicial no alto contraste: sem a foto de fundo (fundo todo preto)
+   e sem sombra colorida nos botões. */
+.app.alto-contraste .home__fundo {
+  display: none;
+}
+
+.app.alto-contraste .tela--home::before {
+  background: var(--cor-fundo);
+}
+
+.app.alto-contraste .botao-grande {
+  box-shadow: none;
 }
 
 /* ===================================================================
@@ -33,9 +62,18 @@
    dele.
    =================================================================== */
 
-.app.modo-cadeirante .tela--home {
+/* Tela inicial: o nome da sala e os botões descem para o fim da tela
+   (funciona com o tablet em pé ou deitado). */
+.app.modo-cadeirante .home__corpo {
   justify-content: flex-end;
-  padding-bottom: 3rem;
+  padding-bottom: 150px; /* o menu de acessibilidade fica maior neste modo */
+}
+
+@media (orientation: landscape) and (min-width: 900px) {
+  .app.modo-cadeirante .home__corpo {
+    justify-content: center;
+    align-items: flex-end;
+  }
 }
 
 .app.modo-cadeirante .tela__conteudo {

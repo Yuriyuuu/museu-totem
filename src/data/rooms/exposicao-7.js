@@ -2,6 +2,8 @@ const exposicao7 = {
   id: 'exposicao-7',
   nome: 'Exposição 7',
   temaHistorico: 'Política e Memória',
+  foto: '/img/salas/politica-e-memoria.webp',
+  fotoFoco: '50% 40%',
 
   introducao: {
     titulo: 'Exposição 7',
@@ -50,7 +52,7 @@ const exposicao7 = {
     {
       id: 'projetor-cineara-cine-sao-jose',
       nome: 'Projetor do Cineara e do Cine São José',
-      imagem: '/img/projetor-cineara-cine-sao-jose.svg',
+      imagem: '/img/projetor-cineara-cine-sao-jose.jpg',
       texto:
         'Projetor de cinema que pertenceu ao Cineara e ao Cine São José — cinemas que funcionaram em ' +
         'Quixadá desde a década de 1950 até 1989, marcando gerações de moradores com sessões de cinema ' +

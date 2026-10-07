@@ -2,6 +2,8 @@ const exposicao6 = {
   id: 'exposicao-6',
   nome: 'Exposição 6',
   temaHistorico: 'Exposição de Artistas Locais',
+  foto: '/img/salas/artistas-locais.webp',
+  fotoFoco: '50% 55%',
 
   // TEXTO PROVISÓRIO — esta sala ainda não tinha conteúdo no roteiro do museu.
   // O texto abaixo é só um ponto de partida: troque pelo texto oficial da
@@ -30,7 +32,7 @@ const exposicao6 = {
   //   },
   acervo: [],
 
-  // Mensagem mostrada em "Explore o Acervo" enquanto a lista acima estiver vazia.
+  // Mensagem mostrada em "Explore as Obras" enquanto a lista acima estiver vazia.
   acervoAviso:
     'As obras desta exposição mudam de tempos em tempos. Veja na própria sala o que está em cartaz.',
 

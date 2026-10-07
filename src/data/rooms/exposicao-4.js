@@ -2,6 +2,8 @@ const exposicao4 = {
   id: 'exposicao-4',
   nome: 'Exposição 4',
   temaHistorico: 'Quixadá Antigo em Maquetes',
+  foto: '/img/salas/quixada-antigo-em-maquetes.webp',
+  fotoFoco: '50% 60%',
 
   introducao: {
     titulo: 'Exposição 4',

@@ -51,9 +51,9 @@ src/
   hooks/useCurrentRoom.js  ← lê ?sala= da URL e devolve os dados da sala
   hooks/useIdleReset.js    ← volta para a tela inicial após um tempo sem toque
   components/
-    HomeScreen.jsx         ← tela inicial (3 botões) + fundo com a marca do museu
+    HomeScreen.jsx         ← tela inicial: logos, nome da sala e os 3 botões sobre a foto de fundo
     IntroScreen.jsx        ← Botão 1: "O que há nesta sala?"
-    AcervoScreen.jsx       ← Botão 2: "Explore o Acervo" (lista + detalhe)
+    AcervoScreen.jsx       ← Botão 2: "Explore as Obras" (lista + detalhe)
     MapScreen.jsx           ← Botão 3: "Mapa da Sala" (planta baixa real + destaque da sala)
     AccessibilityMenu.jsx  ← menu lateral fixo de acessibilidade
     AudioPlayer.jsx         ← player de audiodescrição (com fallback de voz)
@@ -62,7 +62,11 @@ src/
     base.css                ← layout geral + paleta de cores da marca
     accessibility.css       ← alto contraste e modo cadeirante
 public/
-  img/marca-museu.png      ← logo do museu extraído do PDF (usado como fundo)
+  img/marca-museu.png      ← logo do museu (pequeno, no cabeçalho das telas internas)
+  img/marca-museu-horizontal.png ← logo do museu na faixa de cima da tela inicial
+  img/logo-prefeitura-quixada.png, logo-secult-quixada.png ← logos de quem realiza
+  img/salas/*.webp          ← foto de cada sala (fundo da tela inicial e "O que há nesta sala?")
+  img/fachada-museu.webp    ← foto da fachada, usada se a sala não tiver foto própria
   img/planta-museu.jpg      ← planta baixa real do museu (usada no Mapa da Sala)
   img/*.jpg                 ← fotos reais das peças do acervo, tiradas por vocês
   img/*.svg                 ← placeholders restantes (peças sem foto real ainda)
@@ -86,8 +90,26 @@ conhece o acervo de perto vai pegar.
 
 ## Sobre as imagens
 
-- **Fundo/marca d'água:** a imagem que aparece na tela inicial e como
-  selo no cabeçalho das outras telas é o próprio logo do museu (o
+- **Tela inicial:** a foto da sala fica como fundo da tela inteira, bem
+  suave (levemente desfocada e com um véu claro por cima), só para a
+  tela não ficar vazia. Por cima dela: uma faixa com o logo do museu e
+  as logos da Prefeitura de Quixadá e da Secretaria de Cultura/Fundação
+  Cultural, o nome da sala e os 3 botões. Com o tablet deitado, o nome
+  da sala fica à esquerda e os botões à direita. Cada sala escolhe a
+  sua foto em dois campos do arquivo de dados
+  (`src/data/rooms/exposicao-N.js`):
+
+  ```js
+  foto: '/img/salas/acude-cedro.webp',
+  fotoFoco: '50% 45%', // que parte da foto fica à mostra
+  ```
+
+  Para a foto aparecer mais ou menos, mude os três números do "véu" em
+  `src/styles/base.css` (procure por `.tela--home::before`). As fotos
+  das salas e as logos vieram da sua pasta `Downloads\Museu` (subpastas
+  `site-imagens-melhoradas`, `Logos` e a das exposições de artistas
+  locais), só reduzidas de tamanho para carregarem rápido no tablet.
+- **Logo no cabeçalho das outras telas:** é o próprio logo do museu (o
   desenho do casarão de 1922), extraído do PDF que você enviou.
 - **Fotos das peças do acervo:** a maioria das peças agora usa as
   fotos reais que estavam na sua pasta `Downloads\Museu` (uma por

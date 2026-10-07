@@ -2,6 +2,8 @@ const exposicao2 = {
   id: 'exposicao-2',
   nome: 'Exposição 2',
   temaHistorico: 'Sala Jacinto de Sousa',
+  foto: '/img/salas/jacinto-de-sousa.webp',
+  fotoFoco: '50% 25%',
 
   introducao: {
     titulo: 'Exposição 2',

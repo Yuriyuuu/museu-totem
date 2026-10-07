@@ -4,6 +4,8 @@ const exposicao5 = {
   // Nome histórico/temático da sala — usado como legenda, para não perder
   // a referência ao conteúdo real por trás do número.
   temaHistorico: 'Açude Cedro',
+  foto: '/img/salas/acude-cedro.webp',
+  fotoFoco: '50% 45%',
 
   introducao: {
     titulo: 'Exposição 5',
