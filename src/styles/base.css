@@ -146,7 +146,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  padding: 1.5rem 1.5rem 130px; /* embaixo: lugar do menu de acessibilidade */
+  padding: 1.5rem 1.5rem 100px; /* embaixo: lugar da bandeja de acessibilidade */
 }
 
 .home__titulo {
@@ -333,7 +333,7 @@ body {
 .tela__conteudo {
   flex: 1;
   padding: var(--espaco);
-  padding-bottom: 140px; /* espaço reservado pro menu de acessibilidade */
+  padding-bottom: 100px; /* espaço reservado pra bandeja de acessibilidade */
   overflow-y: auto;
 }
 
@@ -512,42 +512,105 @@ body {
   background: var(--cor-primaria);
 }
 
-/* ---------- Menu de acessibilidade ---------- */
+/* ---------- Bandeja de acessibilidade ---------- */
+/* Fechada: só o botão "Acessibilidade" no canto de baixo à direita.
+   Aberta: um painel com os 6 recursos aparece logo acima dele.
+   Usa tamanhos fixos (px) para a bandeja não crescer junto com o A+. */
 
-.a11y-menu {
+.a11y-bandeja {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  display: flex;
-  gap: 0.6rem;
-  padding: 0.6rem;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--cor-borda);
-  border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  right: 16px;
+  bottom: 16px;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
-.a11y-menu__botao {
-  width: var(--altura-toque-minima);
-  height: var(--altura-toque-minima);
+.a11y-alca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 60px;
+  padding: 10px 18px 10px 14px;
+  border: 2px solid var(--cor-primaria);
   border-radius: 999px;
-  border: 1px solid var(--cor-borda);
-  background: white;
-  font-size: 1.15em;
+  background: #fff;
+  color: var(--cor-primaria-escura);
+  font-family: inherit;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  color: var(--cor-texto);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
-.a11y-menu__botao:disabled {
+.a11y-alca.is-aberta {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.a11y-alca .a11y-recurso__icone {
+  width: 30px;
+  height: 30px;
+}
+
+.a11y-alca__seta {
+  width: 18px;
+  height: 18px;
+}
+
+.a11y-painel {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  gap: 8px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--cor-borda);
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+}
+
+.a11y-recurso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 60px;
+  padding: 8px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--cor-texto);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: left;
+  cursor: pointer;
+}
+
+.a11y-recurso:disabled {
   opacity: 0.35;
 }
 
-.a11y-menu__botao.is-ativo {
+.a11y-recurso.is-ativo {
   background: var(--cor-primaria);
-  color: white;
   border-color: var(--cor-primaria);
+  color: #fff;
+}
+
+.a11y-recurso__icone {
+  flex: none;
+  width: 26px;
+  height: 26px;
+}
+
+.a11y-recurso__letra {
+  flex: none;
+  width: 26px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 800;
 }
 
 /* ---------- Botão TEMPORÁRIO "Trocar sala" (só para testes) ----------
@@ -628,16 +691,3 @@ body {
   background: #f7e3e0;
 }
 
-/* Tela estreita (tablet pequeno): embaixo não sobra espaço ao lado do menu
-   de acessibilidade, então o botão vai para o canto de cima à direita e a
-   lista abre para baixo. */
-@media (max-width: 700px) {
-  .trocar-sala {
-    top: 10px;
-    right: 10px;
-    bottom: auto;
-    left: auto;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-  }
-}

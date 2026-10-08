@@ -64,7 +64,7 @@ src/
     IntroScreen.jsx        ← Botão 1: "O que há nesta sala?"
     AcervoScreen.jsx       ← Botão 2: "Explore as Obras" (lista + detalhe)
     MapScreen.jsx           ← Botão 3: "Mapa da Sala" (planta baixa real + destaque da sala)
-    AccessibilityMenu.jsx  ← menu lateral fixo de acessibilidade
+    AccessibilityMenu.jsx  ← bandeja de acessibilidade (abre e fecha, canto de baixo à direita)
     AudioPlayer.jsx         ← player de audiodescrição (com fallback de voz)
     VLibrasWidget.jsx       ← avatar de Libras (governo federal, gratuito)
   styles/
@@ -188,7 +188,7 @@ com o nome exato usado em cada arquivo de sala.
 
 ## Libras (VLibras)
 
-O botão "Libras" do menu lateral ativa o **VLibras**
+O botão "Libras" da bandeja de acessibilidade ativa o **VLibras**
 (https://vlibras.gov.br), ferramenta gratuita e de código aberto do
 Governo Federal: um avatar 3D traduz o texto da tela para Língua
 Brasileira de Sinais. Ele é carregado de um script externo — **por
@@ -197,6 +197,24 @@ avatar é aberto (depois, o navegador guarda em cache). Se os totens
 forem ficar 100% offline, será preciso hospedar os arquivos do VLibras
 localmente — o projeto é aberto em
 https://github.com/spbgovbr-vlibras.
+
+## Bandeja de acessibilidade
+
+No canto de baixo à direita de todas as telas fica o botão
+**"Acessibilidade"**. Tocando nele, abre uma bandeja com 6 recursos:
+
+- **Letra menor / Letra maior:** diminui ou aumenta o tamanho do texto.
+- **Contraste:** fundo preto com letras brancas e botões amarelos.
+- **Texto simples:** troca os textos da sala por uma versão com frases
+  curtas e palavras fáceis (é a "Linguagem Simples" do roteiro, pensada
+  para crianças, idosos e pessoas com deficiência intelectual). Cada
+  texto do app já tem essa versão, no campo `textoSimples`.
+- **Libras:** abre o intérprete virtual de Libras (VLibras).
+- **Cadeirante:** leva os botões para a parte de baixo da tela.
+
+O botão vira "Fechar" para recolher a bandeja. Ao voltar para a tela
+inicial (inclusive pela volta automática), tudo é desligado e a bandeja
+fecha.
 
 ## Modo cadeirante, alto contraste, tamanho de fonte, linguagem simples
 

@@ -19,20 +19,18 @@
   color: #000000; /* texto preto sobre fundo amarelo = alto contraste real */
 }
 
-/* Menu de acessibilidade no alto contraste: fundo preto e letra branca
-   (antes a letra ficava branca sobre botão branco e sumia). */
-.app.alto-contraste .a11y-menu {
-  background: #000000;
-  border-color: #ffffff;
-}
-
-.app.alto-contraste .a11y-menu__botao {
+/* Bandeja de acessibilidade no alto contraste: fundo preto, letra branca
+   e o recurso ligado em amarelo com letra preta. */
+.app.alto-contraste .a11y-alca,
+.app.alto-contraste .a11y-painel,
+.app.alto-contraste .a11y-recurso {
   background: #000000;
   color: #ffffff;
   border-color: #ffffff;
 }
 
-.app.alto-contraste .a11y-menu__botao.is-ativo {
+.app.alto-contraste .a11y-alca.is-aberta,
+.app.alto-contraste .a11y-recurso.is-ativo {
   background: var(--cor-primaria);
   border-color: var(--cor-primaria);
   color: #000000;
@@ -66,7 +64,7 @@
    (funciona com o tablet em pé ou deitado). */
 .app.modo-cadeirante .home__corpo {
   justify-content: flex-end;
-  padding-bottom: 150px; /* o menu de acessibilidade fica maior neste modo */
+  padding-bottom: 120px; /* a bandeja de acessibilidade fica maior neste modo */
 }
 
 @media (orientation: landscape) and (min-width: 900px) {
@@ -91,14 +89,16 @@
   height: 88px;
 }
 
-/* O menu de acessibilidade já fica no canto inferior por padrão
-   (position: fixed; bottom), então no modo cadeirante só aumentamos
-   um pouco os alvos de toque para ficarem ainda mais fáceis de acionar
-   sentado. */
-.app.modo-cadeirante .a11y-menu__botao {
-  width: 84px;
-  height: 84px;
-  font-size: 1.3em;
+/* A bandeja de acessibilidade já fica no canto inferior por padrão, então
+   no modo cadeirante só aumentamos um pouco os alvos de toque para ficarem
+   ainda mais fáceis de acionar sentado. */
+.app.modo-cadeirante .a11y-alca,
+.app.modo-cadeirante .a11y-recurso {
+  min-height: 72px;
+}
+
+.app.modo-cadeirante .a11y-painel {
+  grid-template-columns: repeat(2, 165px);
 }
 
 .app.modo-cadeirante .acervo__lista {
@@ -106,9 +106,9 @@
 }
 
 /* ===================================================================
-   VLibras — pequenos ajustes para o avatar não invadir o menu de
+   VLibras — pequenos ajustes para o avatar não invadir a bandeja de
    acessibilidade, que também fica no canto inferior direito.
    =================================================================== */
 div[vw] {
-  z-index: 900; /* abaixo do a11y-menu (1000), mas acima do conteúdo */
+  z-index: 900; /* abaixo da bandeja de acessibilidade (1000), mas acima do conteúdo */
 }

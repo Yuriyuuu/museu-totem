@@ -15,6 +15,8 @@ export function AccessibilityProvider({ children }) {
   const [wheelchairMode, setWheelchairMode] = useState(false);
   const [simpleLanguage, setSimpleLanguage] = useState(false);
   const [librasVisible, setLibrasVisible] = useState(false);
+  // Bandeja de acessibilidade (o painel com os botões) aberta ou fechada.
+  const [menuAberto, setMenuAberto] = useState(false);
 
   const increaseFont = useCallback(() => {
     setFontStepIndex((i) => Math.min(i + 1, FONT_STEPS.length - 1));
@@ -28,6 +30,7 @@ export function AccessibilityProvider({ children }) {
   const toggleWheelchairMode = useCallback(() => setWheelchairMode((v) => !v), []);
   const toggleSimpleLanguage = useCallback(() => setSimpleLanguage((v) => !v), []);
   const toggleLibras = useCallback(() => setLibrasVisible((v) => !v), []);
+  const toggleMenu = useCallback(() => setMenuAberto((v) => !v), []);
 
   // Chamado quando o visitante volta pra tela inicial: assim o próximo
   // visitante não "herda" as configurações do anterior (boa prática em totens públicos).
@@ -37,6 +40,7 @@ export function AccessibilityProvider({ children }) {
     setWheelchairMode(false);
     setSimpleLanguage(false);
     setLibrasVisible(false);
+    setMenuAberto(false);
   }, []);
 
   const value = useMemo(
@@ -48,12 +52,14 @@ export function AccessibilityProvider({ children }) {
       wheelchairMode,
       simpleLanguage,
       librasVisible,
+      menuAberto,
       increaseFont,
       decreaseFont,
       toggleHighContrast,
       toggleWheelchairMode,
       toggleSimpleLanguage,
       toggleLibras,
+      toggleMenu,
       resetAll,
     }),
     [
@@ -62,12 +68,14 @@ export function AccessibilityProvider({ children }) {
       wheelchairMode,
       simpleLanguage,
       librasVisible,
+      menuAberto,
       increaseFont,
       decreaseFont,
       toggleHighContrast,
       toggleWheelchairMode,
       toggleSimpleLanguage,
       toggleLibras,
+      toggleMenu,
       resetAll,
     ]
   );
