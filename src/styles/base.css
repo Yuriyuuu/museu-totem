@@ -549,3 +549,71 @@ body {
   color: white;
   border-color: var(--cor-primaria);
 }
+
+/* ---------- Botão TEMPORÁRIO "Trocar sala" (só para testes) ----------
+   Fica no canto de baixo à esquerda, longe do menu de acessibilidade.
+   Usa tamanhos fixos (px) para não mudar com o A+/A−. Veja
+   src/components/TrocarSala.jsx para desligar. */
+
+.trocar-sala {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.trocar-sala__botao {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(43, 30, 23, 0.82);
+  color: #fff;
+  font: 600 15px/1.2 inherit;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.trocar-sala__lista {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  width: 290px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: #fff;
+  color: #2b1e17;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+.trocar-sala__opcao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trocar-sala__opcao span {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.trocar-sala__opcao.is-atual {
+  background: #f7e3e0;
+}

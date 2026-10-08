@@ -41,6 +41,15 @@ guardado no campo `temaHistorico` de cada arquivo em `src/data/rooms/`.
 Qualquer alteração que você salvar em um arquivo aparece na hora no
 navegador (isso é o "Hot Reload" do Vite).
 
+## Botão temporário "Trocar sala"
+
+No canto de baixo à esquerda de todas as telas há um botão pequeno,
+"⇄ Trocar sala", que abre a lista das 7 exposições e leva direto para a
+tela inicial da escolhida. Ele existe só para facilitar os testes.
+**Antes de instalar os tablets no museu, desligue:** abra
+`src/components/TrocarSala.jsx` e troque `const MOSTRAR_BOTAO = true;`
+por `const MOSTRAR_BOTAO = false;`.
+
 ## Como está organizado o código
 
 ```

@@ -6,6 +6,7 @@ import IntroScreen from './components/IntroScreen.jsx';
 import AcervoScreen from './components/AcervoScreen.jsx';
 import MapScreen from './components/MapScreen.jsx';
 import { useIdleReset } from './hooks/useIdleReset.js';
+import TrocarSala from './components/TrocarSala.jsx'; // botão temporário de testes
 
 // Monta as classes CSS que ligam/desligam cada recurso de acessibilidade.
 // Veja src/styles/accessibility.css para o efeito visual de cada uma.
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/mapa" element={<MapScreen />} />
       </Routes>
       <AccessibilityMenu />
+      <TrocarSala />
     </div>
   );
 }
