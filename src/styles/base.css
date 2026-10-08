@@ -568,52 +568,76 @@ body {
 }
 
 .trocar-sala__botao {
-  padding: 10px 16px;
-  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 60px;
+  padding: 14px 20px;
+  border: 3px solid #fff;
   border-radius: 999px;
-  background: rgba(43, 30, 23, 0.82);
+  background: #2b1e17;
   color: #fff;
-  font: 600 15px/1.2 inherit;
   font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.trocar-sala__botao:active {
+  transform: translateY(1px);
 }
 
 .trocar-sala__lista {
   list-style: none;
   margin: 0;
-  padding: 6px;
-  width: 290px;
-  max-height: 70vh;
+  padding: 8px;
+  width: 340px;
+  max-height: 72vh;
   overflow-y: auto;
   background: #fff;
   color: #2b1e17;
-  border-radius: 14px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
 }
 
 .trocar-sala__opcao {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
+  gap: 3px;
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 14px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background: transparent;
   color: inherit;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 18px;
   text-align: left;
   cursor: pointer;
 }
 
 .trocar-sala__opcao span {
-  font-size: 13px;
+  font-size: 15px;
   opacity: 0.75;
 }
 
 .trocar-sala__opcao.is-atual {
   background: #f7e3e0;
+}
+
+/* Tela estreita (tablet pequeno): embaixo não sobra espaço ao lado do menu
+   de acessibilidade, então o botão vai para o canto de cima à direita e a
+   lista abre para baixo. */
+@media (max-width: 700px) {
+  .trocar-sala {
+    top: 10px;
+    right: 10px;
+    bottom: auto;
+    left: auto;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
 }
